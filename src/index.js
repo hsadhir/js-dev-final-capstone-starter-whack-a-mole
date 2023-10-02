@@ -64,9 +64,9 @@ const moles = document.querySelectorAll(".mole");
 const startButton = document.querySelector("#start");
 const score = document.getElementById("score");
 const timerDisplay = document.getElementById("timer");
-const song = new Audio("https://hsadhir.github.io/js-dev-final-capstone-starter-whack-a-mole/assets/smb_world_clear.wav");
-const timeRunningOut = new Audio("https://hsadhir.github.io/js-dev-final-capstone-starter-whack-a-mole/assets/time-running-out.wav");
-const gameOverTone = new Audio("https://hsadhir.github.io/js-dev-final-capstone-starter-whack-a-mole/assets/smb_gameover.wav");
+// const song = new Audio("../assets/smb_world_clear.wav");
+// const timeRunningOut = new Audio("../assets/time-running-out.wav");
+// const gameOverTone = new Audio("../assets/smb_gameover.wav");
 
 let time = 0;
 let timer;
@@ -242,9 +242,9 @@ function updateTimer() {
     timerDisplay.textContent = time;
     if (time <= Math.floor(duration / 2)) {
       timerDisplay.classList.add('urgent');
-      song.pause();
-      song.currentTime = 0;
-      timeRunningOut.play();
+      // song.pause();
+      // song.currentTime = 0;
+      // timeRunningOut.play();
     }
   }
   return time;
@@ -305,12 +305,12 @@ function setDuration(duration) {
  *
  */
 function stopGame() {
-  timeRunningOut.pause();
-  timeRunningOut.currentTime = 0;
+  // timeRunningOut.pause();
+  // timeRunningOut.currentTime = 0;
   clearInterval(timer);
   startButton.textContent = "GAME OVER!!";
   timerDisplay.classList.remove('urgent');
-  gameOverTone.play();
+  // gameOverTone.play();
   setTimeout(() => {
     startButton.disabled = false;
     startButton.textContent = "START GAME";
@@ -327,7 +327,7 @@ function stopGame() {
  *
  */
 function startGame() {
-  song.play();
+  // song.play();
   startButton.disabled = true;
   startButton.textContent = "Game In Progress";
   clearScore();
