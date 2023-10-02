@@ -1,29 +1,43 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="./src/styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Whack-A-Mole</title>
+    <link rel="stylesheet" href="./src/styles.css" />
   </head>
   <body>
-    <h1></h1>
-    <div>
-      <div>
-        <h2>Click start to play!</h2>
+    <header>
+      <div class="score-item">
+        <p>Score: <span id="score">0</span></p>
       </div>
-      <div>
-        <h2>score: <span id="score">0</span></h2>
+      <h1 id="title">Whack A Mole !!</h1>
+      <div class="score-item">
+        <p><span id="timer">10</span> seconds left!!</p>
       </div>
-      <div>
-          <h2><span id="timer">0</span> seconds left.</h2>
-      </div>
-    </div>
-    <div class="grid">
-      <div id="hole0" class="hole">
-        <div id="mole0" class="mole"></div>
-      </div>
-      <div id="hole1" class="hole">
-        <div id="mole1" class="mole"></div>
-      </div>
-      <!--TODO: Add the missing holes and moles. -->
-    </div>
+    </header>
+    <main>
+      <section id="setup">
+        <div id="difficulty">
+          <p>Select Difficulty Level</p>
+          <div>
+            <button class="difficulty-btn" id="easy">EASY</button>
+            <button class="difficulty-btn" id="normal">NORMAL</button>
+            <button class="difficulty-btn" id="difficult">DIFFICULT</button>
+          </div>
+        </div>
+        <button id="start">START GAME</button>
+        <div id="duration">
+          <p>Select Game Duration</p>
+          <div>
+            <button class="duration-btn" id="ten-sec">10s</button>
+            <button class="duration-btn" id="twenty-sec">20s</button>
+            <button class="duration-btn" id="thirty-sec">30s</button>
+          </div>
+        </div>
+      </section>
+      <section class="grid"></section>
+    </main>
     <script src="./src/index.js"></script>
   </body>
 </html>

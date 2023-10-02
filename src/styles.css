@@ -1,46 +1,110 @@
+@import url("https://fonts.googleapis.com/css2?family=Creepster&display=swap");
+
 html {
-  /*background: url('./assets/background.png') no-repeat center center fixed;*/
-  background: url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/background.png?raw=true') no-repeat center center fixed;
+  /* background: url("../assets/mario-bg.jpg") no-repeat center center fixed; */
+  background-color: #f9e090;
   box-sizing: border-box;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  z-index:0;
+  z-index: 0;
   overflow: hidden;
 }
 
-h1 {
-  text-align: center;
-  font-size: 90px;
-  font-family: "Comic Sans MS", "Comic Sans", cursive;
-  color: white;
-  -webkit-text-stroke: 2px black;
+body {
+  font-family: Creepster, cursive;
+  font-size: 32px;
+  margin: 0;
 }
 
-h2 {
+header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.score-item {
+  flex: 1;
   text-align: center;
+  margin: 0 40px 0 40px;
+  padding: 10px 10px 10px 10px;
+  color: transparent;
+  -webkit-text-stroke: #ff0060 3px;
   font-size: 40px;
-  color: white;
-  -webkit-text-stroke: 1px black;
+}
+
+.score-item:nth-of-type(1) {
+  text-align: left;
+}
+
+.score-item:nth-of-type(2) {
+  text-align: right;
+}
+
+#title {
+  -webkit-text-stroke: #0079ff 3px;
+  -webkit-text-fill-color: transparent;
+}
+
+#setup {
+  /* text-align: center;
+  padding: 10px 10px 10px 10px; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+setup > * {
+  flex: 1;
 }
 
 #start {
-    text-align: center;
-    font-size: 30px;
+  width: 150px;
+  height: 150px;
+  border: solid 10px #ff0060;
+  border-radius: 50%;
+  background-color: transparent;
+  color: #070a52;
+  font-family: Creepster, cursive;
+  font-size: 32px;
+  -webkit-text-stroke: 2px #0079ff;
+  /* https://getcssscan.com/css-box-shadow-examples */
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
 }
 
-#timer{
-    color: white;
+#start:hover {
+  border: solid 10px #0079ff;
+  background-color: #00dfa2;
+  color: #f6fa70;
+}
+
+#start:active {
+  border: solid 10px #ff0060;
+  background-color: transparent;
+  color: #070a52;
+}
+
+#start:disabled {
+  pointer-events: none;
+  background-color: #ecf9ff;
+  border-color: #ffacac;
+  color: #fef9ef;
 }
 
 .grid {
-  width: 600px;
+  background-color: #ddffbb;
+  border: solid 20px #e96479;
+  border-radius: 50px;
+  width: 800px;
   height: 400px;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  /*cursor: url('./assets/mallet.png'), pointer;*/
+  margin-top: 20px;
+  /* margin-left: 20px; */
+  padding-bottom: 30px;
+  /* cursor: url("../assets/mallet.png"), pointer; */
 }
 
 .hole {
@@ -51,32 +115,122 @@ h2 {
 
 .hole:after {
   display: block;
-  /*background: url("./assets/hole.png") bottom center no-repeat;*/
-  background: url("https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/hole.png?raw=true") bottom center no-repeat;
-  background-size:contain;
-  content:'';
+  background: url("../assets/hole.png") bottom center no-repeat;
+  background-size: contain;
+  content: "";
   width: 100%;
   height: 100%;
   position: absolute;
   bottom: -40%;
   z-index: 2;
-  pointer-events:none;
+  pointer-events: none;
 }
 
 .mole {
-  /*background:url('./assets/mole.png') bottom center no-repeat;*/
-  background:url('https://github.com/Thinkful-Ed/js-dev-final-capstone-starter/blob/main/assets/mole.png?raw=true') bottom center no-repeat;
+  background: url("../assets/mole.png") bottom center no-repeat;
   background-size: 40%;
   position: absolute;
   top: 100%;
   width: 100%;
   height: 100%;
-  /*transition: transform 0.5s;*/
+  transition: transform 0.5s;
   transition: all 1s;
-  pointer-events:auto;
+  pointer-events: auto;
 }
 
 .hole.show .mole {
   top: 0;
-  /*transform: scale(1.1);*/
+  transform: scale(1.1);
+}
+
+#result {
+  border: solid 10px #ff9a8c;
+  border-radius: 25px;
+  color: black;
+  width: 400px;
+  background-color: #f7fd04;
+  text-align: center;
+}
+
+#result > button {
+  border: solid 10px #ff0060;
+  border-radius: 25px;
+  background-color: transparent;
+  color: #070a52;
+  font-size: 40px;
+  font-family: Creepster, cursive;
+  width: 200px;
+  height: 100px;
+}
+
+#difficulty,
+#duration {
+  margin: 20px;
+  padding: 20px;
+  border: solid 10px #ff0060;
+  border-radius: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+#difficulty button,
+#duration button {
+  flex: 1;
+  padding: 5px;
+  margin: 5px;
+  font-family: Creepster, cursive;
+  font-size: 32px;
+  border-radius: 25px;
+  width: 150px;
+}
+
+#difficulty > p,
+#duration > p {
+  color: transparent;
+  -webkit-text-stroke: #0079ff 3px;
+}
+
+#easy,
+#ten-sec {
+  background-color: #5c8374;
+  border: solid 5px #040d12;
+  color: transparent;
+  -webkit-text-stroke: 2px #040d12;
+}
+
+#normal,
+#twenty-sec {
+  background-color: #451952;
+  border: solid 5px #662549;
+  color: transparent;
+  -webkit-text-stroke: 2px #f39f5a;
+}
+
+#difficult,
+#thirty-sec {
+  background-color: #ed2b2a;
+  border: solid 5px #d21312;
+  color: transparent;
+  -webkit-text-stroke: 2px #070a52;
+}
+
+#difficulty button:hover,
+#duration button:hover {
+  border: solid 5px #0079ff;
+  background-color: #00dfa2;
+  color: #f6fa70;
+}
+
+#difficulty button.selected,
+#duration button.selected {
+  border: solid 10px #16ff00;
+}
+
+#timer.urgent {
+  color: #d21312;
+  font-weight: bolder;
+  font-size: 60px;
+  -webkit-text-stroke: transparent;
 }
