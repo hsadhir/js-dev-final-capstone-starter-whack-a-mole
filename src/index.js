@@ -64,9 +64,9 @@ const moles = document.querySelectorAll(".mole");
 const startButton = document.querySelector("#start");
 const score = document.getElementById("score");
 const timerDisplay = document.getElementById("timer");
-const song = new Audio("./js-dev-final-capstone-starter-whack-a-mole/assets/smb_world_clear.wav");
-const timeRunningOut = new Audio("./js-dev-final-capstone-starter-whack-a-mole/assets/time-running-out.wav");
-const gameOverTone = new Audio("./js-dev-final-capstone-starter-whack-a-mole/assets/smb_gameover.wav");
+const song = new Audio("../assets/smb_world_clear.wav");
+const timeRunningOut = new Audio("../assets/time-running-out.wav");
+const gameOverTone = new Audio("../assets/smb_gameover.wav");
 
 let time = 0;
 let timer;
