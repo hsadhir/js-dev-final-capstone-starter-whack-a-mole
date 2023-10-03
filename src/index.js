@@ -241,7 +241,7 @@ function updateTimer() {
     time -= 1;
     timerDisplay.textContent = time;
     if (time <= Math.floor(duration / 2)) {
-      timerDisplay.classList.add('urgent');
+      timerDisplay.classList.add("urgent");
       song.pause();
       song.currentTime = 0;
       timeRunningOut.play();
@@ -309,12 +309,14 @@ function stopGame() {
   timeRunningOut.currentTime = 0;
   clearInterval(timer);
   startButton.textContent = "GAME OVER!!";
-  timerDisplay.classList.remove('urgent');
+  timerDisplay.classList.remove("urgent");
   gameOverTone.play();
   setTimeout(() => {
     startButton.disabled = false;
     startButton.textContent = "START GAME";
     timerDisplay.textContent = duration;
+    gameOverTone.pause();
+    gameOverTone.currentTime = 0;
     clearScore();
   }, 5000);
   return "game stopped";
